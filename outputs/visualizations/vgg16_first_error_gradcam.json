@@ -1,0 +1,11 @@
+{
+  "image": "data/train/cat.12393.jpg",
+  "model_checkpoint": "outputs/vgg16_frozen/best.pt",
+  "method": "Grad-CAM",
+  "target_layer": "features.29",
+  "true_label": 0,
+  "predicted_class": 1,
+  "explained_class": 1,
+  "dog_probability": 0.9622231125831604,
+  "has_positive_signal": true
+}

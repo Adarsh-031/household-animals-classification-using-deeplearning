@@ -1,0 +1,7 @@
+{
+  "selected_model": "vgg16_frozen",
+  "checkpoint": "outputs/vgg16_frozen/best.pt",
+  "selection_basis": "Lowest validation loss",
+  "selected_before_test_evaluation": true,
+  "fine_tuned_comparison": "Final fine-tuning epoch; not the selected deployment model"
+}

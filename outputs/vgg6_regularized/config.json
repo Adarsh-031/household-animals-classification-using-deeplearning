@@ -1,0 +1,44 @@
+{
+  "experiment": "vgg6_regularized",
+  "seed": 42,
+  "epochs": 20,
+  "batch_size": 32,
+  "image_size": 224,
+  "hidden_units": 512,
+  "dropout": 0.5,
+  "augmentation": true,
+  "optimizer": "RMSprop",
+  "learning_rate": 0.0001,
+  "alpha": 0.99,
+  "eps": 1e-08,
+  "momentum": 0.0,
+  "weight_decay": 0.0,
+  "loss": "BCEWithLogitsLoss",
+  "normalization_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "normalization_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "label_mapping": {
+    "cat": 0,
+    "dog": 1
+  },
+  "precision": "float32",
+  "checkpoint_selection": "lowest validation loss",
+  "torch_version": "2.14.1+cu126",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "split_manifest_sha256": {
+    "train": "e83a2753268133f2a77dd0b2b734619e914881595a80d47bd129b72ac2eba28d",
+    "val": "de7b279457ec8ddf3f3975a42599d4f288cd671dff8afaea8e273a1f4cdcaf2f",
+    "test": "5db224763f5c563e44d5eb4160a04fab4d0889fccf574fa2effa647f5d641aeb"
+  },
+  "augmentation_settings": {
+    "horizontal_flip_probability": 0.5,
+    "rotation_degrees": 10
+  }
+}
