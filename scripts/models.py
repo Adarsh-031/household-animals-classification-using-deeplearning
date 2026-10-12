@@ -78,11 +78,30 @@ class VGG16Binary(nn.Module):
             else None
         )
 
-        backbone = vgg16(weights=weights)
-
-        # Retain the pretrained convolutional feature extractor.
-        # Discard VGG-16's original ImageNet classifier.
-        self.features = backbone.features
+        if pretrained:
+            backbone = vgg16(weights=weights)
+            self.features = backbone.features
+        else:
+            # Build the same VGG-16 features without its unused classifier.
+            layers = []
+            in_channels = 3
+            configuration = [
+                64, 64, "M",
+                128, 128, "M",
+                256, 256, 256, "M",
+                512, 512, 512, "M",
+                512, 512, 512, "M",
+            ]
+            for channels in configuration:
+                if channels == "M":
+                    layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
+                else:
+                    layers.extend([
+                        nn.Conv2d(in_channels, channels, kernel_size=3, padding=1),
+                        nn.ReLU(inplace=True),
+                    ])
+                    in_channels = channels
+            self.features = nn.Sequential(*layers)
 
         self.classifier = nn.Sequential(
             nn.Flatten(),

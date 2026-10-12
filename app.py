@@ -17,7 +17,7 @@ from scripts.explain import binary_gradcam
 
 
 ROOT = Path(__file__).resolve().parent
-CHECKPOINT = ROOT / "outputs" / "vgg16_frozen" / "best.pt"
+CHECKPOINT = ROOT / "outputs" / "vgg16_frozen" / "inference.pt"
 
 st.set_page_config(
     page_title="Household Animals Classifier",

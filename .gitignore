@@ -110,3 +110,5 @@ desktop.ini
 scratch/
 temp/
 tmp/
+# Deployment checkpoint
+!outputs/vgg16_frozen/inference.pt
